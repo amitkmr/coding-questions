@@ -66,7 +66,10 @@ def merge_sort(arr,p,r):
     merge_sort(arr,mid+1,r)
     merge(arr,p,mid,r)
 
-arr = [5,6,3,2,1,9,8]
+t = int(input())
 
-merge_sort(arr,0,len(arr)-1)
-print(arr)
+for i in range(0,t):
+    n = int(input())
+    arr = [int(x) for x in input().strip().split()]
+    merge_sort(arr,0,n-1)
+    print(" ".join([str(x) for x in arr]))
