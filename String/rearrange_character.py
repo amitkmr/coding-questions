@@ -36,6 +36,7 @@ def rearrange_char(st):
     
     max_val = max(rem)
     print(rem)
+    
     if max_val >= len(st)//2 + 1:
         return 0
     return 1
