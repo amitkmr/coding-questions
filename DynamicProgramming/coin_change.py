@@ -35,32 +35,34 @@ Output:
 5
 
 """
-def coin_change(arr,m,r,rem):
+
+
+def coin_change(arr, m, r, rem):
     if r < 0:
         return 0
     if m < 0:
         return 0
     if m == 0:
         return 1
-    if rem[m][r] != -1:
+    if rem[m][r]:
         return rem[m][r]
 
-    rem[m][r]  = coin_change(arr,m-arr[r],r,rem) + coin_change(arr,m,r-1,rem)
+    rem[m][r] = coin_change(arr, m - arr[r], r, rem) + coin_change(arr, m, r - 1, rem)
     return rem[m][r]
-
 
 
 def main():
     t = int(input())
-    for i in range(0,t):
+    for i in range(0, t):
         n = int(input().strip(" "))
         arr = [int(x) for x in input().strip(" ").split(" ")]
         m = int(input())
         rem = []
-        for i in range(0,m+1):
-            rem.append([-1]*n)
-        result = coin_change(arr,m,n-1,rem)
+        for i in range(0, m + 1):
+            rem.append([None] * n)
+        result = coin_change(arr, m, n - 1, rem)
         print(result)
-        
-if __name__ == '__main__':
+
+
+if __name__ == "__main__":
     main()
