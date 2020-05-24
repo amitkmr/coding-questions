@@ -7,6 +7,26 @@ class Node:
         self.next = None
 
 
+def k_reverse(reversed, remain, k):
+    if not remain:
+        return reversed
+
+    count = k
+
+    start = remain
+    while count > 0 and remain.next:
+        remain = remain.next
+        count -= 1
+
+    end = remain
+
+    next = remain.next
+    remain.next = reversed
+    reversed = remain
+
+    return reverse(reversed, next)
+
+
 def reverse(reversed, remain):
     if not remain:
         return reversed
